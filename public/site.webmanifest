@@ -1,6 +1,19 @@
 {
   "name": "شراء سكراب جدة 05775771358 | نشتري حديد ونحاس ومكيفات بأعلى سعر كاش | We Buy Scrap Jeddah",
+  "short_name": "سكراب جدة 05775771358",
   "description": "شراء سكراب جدة 05775771358 بأعلى الأسعار كاش فوري. نشتري سكراب حديد، نحاس أحمر وأصفر، ألمنيوم، مكيفات خربانة وسكراب، بطاريات، وهدم عمائر ومستودعات في جميع أحياء جدة مع دينا نقل وفك مجاني 24 ساعة.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "ar-SA",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }

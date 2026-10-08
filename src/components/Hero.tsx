@@ -39,11 +39,17 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight sm:leading-tight">
               {currentLang === 'ar' ? (
                 <>
-                  شراء سكراب وخردة ومكيفات بجدة <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-amber-200">كاش فوري ونقل مجاني</span>
+                  شراء سكراب جدة 05775771358{' '}
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-amber-200">
+                    نشتري حديد ونحاس ومكيفات بأعلى سعر كاش
+                  </span>
                 </>
               ) : (
                 <>
-                  Top Cash Buyer for Scrap Metal & Used ACs in <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-amber-200">Jeddah</span>
+                  We Buy Scrap Jeddah 05775771358 –{' '}
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-amber-200">
+                    Top Cash for Scrap Metal & Used ACs
+                  </span>
                 </>
               )}
             </h1>

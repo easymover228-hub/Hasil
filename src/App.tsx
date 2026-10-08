@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Language } from './types';
+import { UI_TRANSLATIONS } from './translations';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { MaterialsSection } from './components/MaterialsSection';
@@ -8,6 +9,7 @@ import { ProcessSteps } from './components/ProcessSteps';
 import { JeddahDistricts } from './components/JeddahDistricts';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { TestimonialsSection } from './components/TestimonialsSection';
+import { SeoAuthoritySection } from './components/SeoAuthoritySection';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { PickupBookingModal } from './components/PickupBookingModal';
@@ -15,6 +17,11 @@ import { FloatingActionBar } from './components/FloatingActionBar';
 
 export default function App() {
   const [currentLang, setCurrentLang] = useState<Language>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'ar') {
+      return urlLang;
+    }
     const saved = localStorage.getItem('jeddah_scrap_lang');
     return (saved === 'en' || saved === 'ar') ? saved : 'ar';
   });
@@ -23,14 +30,16 @@ export default function App() {
   const [selectedMaterialForBooking, setSelectedMaterialForBooking] = useState<string | undefined>(undefined);
   const [selectedDistrictForBooking, setSelectedDistrictForBooking] = useState<string | undefined>(undefined);
 
-  // Sync document direction and language code when language changes
+  // Sync document direction, language code, and SEO title/description when language changes
   useEffect(() => {
     localStorage.setItem('jeddah_scrap_lang', currentLang);
     document.documentElement.lang = currentLang;
-    if (currentLang === 'ar') {
-      document.documentElement.dir = 'rtl';
-    } else {
-      document.documentElement.dir = 'ltr';
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    const t = UI_TRANSLATIONS[currentLang];
+    document.title = t.siteTitle;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', t.siteDescription);
     }
   }, [currentLang]);
 
@@ -51,7 +60,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 text-slate-900 flex flex-col font-sans">
       {/* Header */}
       <Header
         currentLang={currentLang}
@@ -92,6 +101,11 @@ export default function App() {
 
         <TestimonialsSection
           currentLang={currentLang}
+        />
+
+        <SeoAuthoritySection
+          currentLang={currentLang}
+          onOpenBooking={handleOpenBooking}
         />
 
         <FaqSection

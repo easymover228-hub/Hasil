@@ -16,45 +16,53 @@ export const Header: React.FC<HeaderProps> = ({ currentLang, onLanguageChange, o
   const t = UI_TRANSLATIONS[currentLang];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <header className="sticky top-0 z-40 w-full max-w-full overflow-x-hidden bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
       {/* Top micro bar for trust & live rates */}
-      <div className="bg-slate-900 text-slate-200 text-xs py-1.5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1 text-amber-400 font-semibold">
-              <span className="relative flex h-2 w-2">
+      <div className="bg-slate-900 text-slate-200 text-xs py-1.5 px-3 sm:px-4 w-full">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+            <span className="flex items-center gap-1.5 text-amber-400 font-semibold min-w-0">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              {t.liveRatesBadge}
+              <span className="truncate">{t.liveRatesBadge}</span>
             </span>
-            <span className="hidden sm:inline-block text-slate-500">|</span>
-            <span className="hidden sm:flex items-center gap-1 text-slate-300">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="hidden lg:inline-block text-slate-500 shrink-0">|</span>
+            <span className="hidden lg:flex items-center gap-1 text-slate-300 shrink-0">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               {t.badgeCash}
             </span>
-            <span className="hidden md:flex items-center gap-1 text-slate-300">
-              <Scale className="w-3.5 h-3.5 text-amber-400" />
+            <span className="hidden xl:flex items-center gap-1 text-slate-300 shrink-0">
+              <Scale className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               {t.badgeExactScale}
             </span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-slate-300 text-xs">جدة - كافة الأحياء 24/7</span>
-            {/* Language Switcher */}
-            <div className="flex items-center gap-1 bg-slate-800 rounded-md p-0.5 text-xs">
-              <Globe className="w-3 h-3 text-slate-400 ml-1 mr-1" />
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <span className="hidden md:inline text-slate-300 text-xs">جدة - كافة الأحياء 24/7</span>
+            {/* High-Visibility Green Language Switcher */}
+            <div className="flex items-center gap-1 bg-emerald-950/90 border-2 border-emerald-500 rounded-xl p-0.5 sm:p-1 shadow-md shadow-emerald-950/50 shrink-0">
+              <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 ms-1 hidden sm:inline" />
               <button
                 type="button"
                 onClick={() => onLanguageChange('ar')}
-                className={`px-2 py-0.5 rounded transition font-medium ${currentLang === 'ar' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-300 hover:text-white'}`}
+                className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-extrabold transition cursor-pointer ${
+                  currentLang === 'ar'
+                    ? 'bg-emerald-500 text-white shadow-sm ring-1 ring-emerald-300'
+                    : 'bg-emerald-900/60 text-emerald-100 hover:bg-emerald-700 hover:text-white'
+                }`}
               >
-                عربي
+                🇸🇦 عربي
               </button>
               <button
                 type="button"
                 onClick={() => onLanguageChange('en')}
-                className={`px-2 py-0.5 rounded transition font-medium ${currentLang === 'en' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-300 hover:text-white'}`}
+                className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-extrabold transition cursor-pointer ${
+                  currentLang === 'en'
+                    ? 'bg-emerald-500 text-white shadow-sm ring-1 ring-emerald-300'
+                    : 'bg-emerald-900/60 text-emerald-100 hover:bg-emerald-700 hover:text-white'
+                }`}
               >
                 English
               </button>
@@ -64,17 +72,17 @@ export const Header: React.FC<HeaderProps> = ({ currentLang, onLanguageChange, o
       </div>
 
       {/* Main navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between gap-2">
         {/* Brand */}
-        <a href="#top" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-black text-xl shadow-md group-hover:scale-105 transition">
-            <Truck className="w-6 h-6 stroke-[2.2]" />
+        <a href="#top" className="flex items-center gap-2.5 sm:gap-3 group min-w-0 flex-1 lg:flex-initial">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-black text-xl shadow-md shrink-0 group-hover:scale-105 transition">
+            <Truck className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
           </div>
-          <div>
-            <div className="font-extrabold text-slate-900 text-lg sm:text-xl leading-tight">
+          <div className="min-w-0">
+            <div className="font-extrabold text-slate-900 text-sm sm:text-lg lg:text-xl leading-tight truncate">
               {t.brandName}
             </div>
-            <div className="text-xs text-amber-700 font-semibold tracking-wide">
+            <div className="text-[11px] sm:text-xs text-amber-700 font-semibold tracking-wide truncate max-w-[210px] sm:max-w-xs md:max-w-md">
               {t.brandSub}
             </div>
           </div>

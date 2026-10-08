@@ -51,10 +51,11 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ currentLang }) => {
                 >
                   <button
                     type="button"
+                    aria-expanded={isOpen}
                     onClick={() => toggleFaq(item.id)}
                     className="w-full flex items-center justify-between p-4 sm:p-5 text-start font-bold text-slate-900 hover:text-amber-700 transition gap-4"
                   >
-                    <span className="text-sm sm:text-base">{question}</span>
+                    <h3 className="text-sm sm:text-base font-bold">{question}</h3>
                     <ChevronDown
                       className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
                         isOpen ? 'rotate-180 text-amber-600' : ''
@@ -62,11 +63,13 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ currentLang }) => {
                     />
                   </button>
 
-                  {isOpen && (
-                    <div className="px-4 pb-5 sm:px-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-3">
-                      {answer}
-                    </div>
-                  )}
+                  <div
+                    className={`px-4 pb-5 sm:px-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-3 ${
+                      isOpen ? 'block' : 'hidden'
+                    }`}
+                  >
+                    {answer}
+                  </div>
                 </div>
               );
             })}

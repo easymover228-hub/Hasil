@@ -1,42 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://webuyscrapjeddah.shop/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://webuyscrapjeddah.shop/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://webuyscrapjeddah.shop/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://webuyscrapjeddah.shop/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://webuyscrapjeddah.shop/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://webuyscrapjeddah.shop/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://webuyscrapjeddah.shop/" />
+    <image:image>
+      <image:loc>https://webuyscrapjeddah.shop/og-image.jpg</image:loc>
+      <image:title>شراء سكراب جدة بأعلى سعر كاش فوري 05775771358 - We Buy Scrap Jeddah</image:title>
+      <image:caption>نشتري جميع أنواع السكراب والخردة والحديد والنحاس والألمنيوم والمكيفات والبطاريات في جدة كاش فوري مع نقل وفك مجاني</image:caption>
+      <image:geo_location>Jeddah, Saudi Arabia</image:geo_location>
+    </image:image>
   </url>
   <url>
-    <loc>https://webuyscrapjeddah.shop/#materials</loc>
-    <lastmod>2026-09-10</lastmod>
+    <loc>https://webuyscrapjeddah.shop/?lang=ar</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webuyscrapjeddah.shop/#operations</loc>
-    <lastmod>2026-09-10</lastmod>
+    <loc>https://webuyscrapjeddah.shop/?lang=en</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://webuyscrapjeddah.shop/#districts</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://webuyscrapjeddah.shop/#steps</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://webuyscrapjeddah.shop/#faq</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
