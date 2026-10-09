@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18347930464"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18347930464');
+    </script>
+
+    <!-- Event snippet for Click conversion -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18347930464/qiVZCKilouccEODm_KxE',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -305,7 +331,7 @@
           <a href="#districts">أحياء جدة المخدومة 05775771358</a>
           <a href="#jeddah-scrap-guide">دليل وعناوين شراء سكراب جدة 05775771358</a>
           <a href="#faq">الأسئلة الشائعة</a>
-          <a href="tel:+9665775771358">اتصل الآن: 05775771358</a>
+          <a href="tel:+9665775771358" onclick="return gtag_report_conversion('#')">اتصل الآن: 05775771358</a>
         </nav>
       </header>
 
@@ -313,7 +339,7 @@
         <section>
           <h1>شراء سكراب جدة 05775771358 نشتري حديد ونحاس ومكيفات بأعلى سعر كاش</h1>
           <p>
-            شراء سكراب جدة 05775771358 بأعلى الأسعار كاش فوري. نشتري جميع أنواع السكراب والخردة والمعادن (نحاس أحمر وأصفر، حديد تسليح وهناجر، ألمنيوم، ستانلس ستيل) والمكيفات الخربانة والتالفة والبطاريات ومخلفات هدم المباني وتصفية المستودعات في كافة أحياء جدة مع دينا نقل وعمالة فك وتنزيل مجاناً 24 ساعة. للتواصل المباشر: <a href="tel:+9665775771358">05775771358</a> أو عبر <a href="https://wa.me/9665775771358">واتساب مباشر 05775771358</a>.
+            شراء سكراب جدة 05775771358 بأعلى الأسعار كاش فوري. نشتري جميع أنواع السكراب والخردة والمعادن (نحاس أحمر وأصفر، حديد تسليح وهناجر، ألمنيوم، ستانلس ستيل) والمكيفات الخربانة والتالفة والبطاريات ومخلفات هدم المباني وتصفية المستودعات في كافة أحياء جدة مع دينا نقل وعمالة فك وتنزيل مجاناً 24 ساعة. للتواصل المباشر: <a href="tel:+9665775771358" onclick="return gtag_report_conversion('#')">05775771358</a> أو عبر <a href="https://wa.me/9665775771358" onclick="return gtag_report_conversion('#')">واتساب مباشر 05775771358</a>.
           </p>
           <img
             src="/og-image.jpg"

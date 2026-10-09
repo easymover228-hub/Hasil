@@ -3,7 +3,7 @@ import { Phone, Truck, Menu, X, ShieldCheck, Scale, Globe } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { Language } from '../types';
 import { UI_TRANSLATIONS } from '../translations';
-import { PHONE_NUMBER, DISPLAY_PHONE, WHATSAPP_URL } from '../data/scrapData';
+import { PHONE_NUMBER, DISPLAY_PHONE, WHATSAPP_URL, trackConversion } from '../data/scrapData';
 
 interface HeaderProps {
   currentLang: Language;
@@ -102,6 +102,7 @@ export const Header: React.FC<HeaderProps> = ({ currentLang, onLanguageChange, o
         <div className="hidden sm:flex items-center gap-3">
           <a
             href={`tel:${PHONE_NUMBER}`}
+            onClick={() => trackConversion()}
             className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 font-semibold text-sm transition"
           >
             <Phone className="w-4 h-4 text-emerald-600 fill-emerald-600" />
@@ -112,6 +113,7 @@ export const Header: React.FC<HeaderProps> = ({ currentLang, onLanguageChange, o
             href={`${WHATSAPP_URL}?text=${encodeURIComponent('السلام عليكم، أريد بيع سكراب في جدة، الرجاء إرسال مندوب للمعاينة')}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackConversion()}
             className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-sm transition"
           >
             <WhatsAppIcon className="w-4 h-4 fill-white" />
@@ -120,7 +122,10 @@ export const Header: React.FC<HeaderProps> = ({ currentLang, onLanguageChange, o
 
           <button
             type="button"
-            onClick={onOpenBooking}
+            onClick={() => {
+              trackConversion();
+              onOpenBooking();
+            }}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm shadow-sm transition"
           >
             <Truck className="w-4 h-4" />
@@ -132,6 +137,7 @@ export const Header: React.FC<HeaderProps> = ({ currentLang, onLanguageChange, o
         <div className="flex sm:hidden items-center gap-2">
           <a
             href={`tel:${PHONE_NUMBER}`}
+            onClick={() => trackConversion()}
             className="p-2 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200"
             aria-label="Call"
           >

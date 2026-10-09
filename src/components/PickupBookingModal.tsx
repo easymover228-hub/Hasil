@@ -3,7 +3,7 @@ import { X, Truck, Phone, User, MapPin, Calendar, Camera, CheckCircle2, AlertCir
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { Language, PickupBooking } from '../types';
 import { UI_TRANSLATIONS } from '../translations';
-import { JEDDAH_DISTRICTS, WHATSAPP_URL, PHONE_NUMBER } from '../data/scrapData';
+import { JEDDAH_DISTRICTS, WHATSAPP_URL, PHONE_NUMBER, trackConversion } from '../data/scrapData';
 
 interface PickupBookingModalProps {
   isOpen: boolean;
@@ -103,6 +103,7 @@ export const PickupBookingModal: React.FC<PickupBookingModalProps> = ({
     }
 
     setIsSubmitted(true);
+    trackConversion();
 
     // Format WhatsApp message with booking details
     const msg = `السلام عليكم ورحمة الله،

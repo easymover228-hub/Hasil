@@ -4,6 +4,33 @@ export const PHONE_NUMBER = '+9665775771358';
 export const DISPLAY_PHONE = '0577 577 1358';
 export const WHATSAPP_URL = 'https://wa.me/9665775771358';
 
+declare global {
+  interface Window {
+    gtag_report_conversion?: (url?: string) => boolean;
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+let lastConversionTime = 0;
+
+export const trackConversion = () => {
+  const now = Date.now();
+  if (now - lastConversionTime < 400) {
+    return;
+  }
+  lastConversionTime = now;
+
+  if (typeof window !== 'undefined') {
+    if (typeof window.gtag_report_conversion === 'function') {
+      window.gtag_report_conversion();
+    } else if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-18347930464/qiVZCKilouccEODm_KxE',
+      });
+    }
+  }
+};
+
 // Authentic real-time on-the-ground scrap work photography in Jeddah
 export const SECTION_IMAGES = {
   heroScrapYard: new URL('../assets/images/scrap_workers_loading_1789005320474.jpg', import.meta.url).href,

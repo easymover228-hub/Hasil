@@ -3,7 +3,7 @@ import { Phone, Truck, CheckCircle2, Zap, ArrowRight, ArrowLeft, ShieldCheck, Ma
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { Language } from '../types';
 import { UI_TRANSLATIONS } from '../translations';
-import { PHONE_NUMBER, DISPLAY_PHONE, WHATSAPP_URL, SECTION_IMAGES } from '../data/scrapData';
+import { PHONE_NUMBER, DISPLAY_PHONE, WHATSAPP_URL, SECTION_IMAGES, trackConversion } from '../data/scrapData';
 
 interface HeroProps {
   currentLang: Language;
@@ -85,6 +85,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
                 href={`${WHATSAPP_URL}?text=${encodeURIComponent('السلام عليكم، عندي سكراب أرغب ببيعه في جدة، كم السعر وكيف طريقة النقل؟')}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackConversion()}
                 className="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-base shadow-lg shadow-emerald-950/40 transition transform hover:-translate-y-0.5"
               >
                 <WhatsAppIcon className="w-5 h-5 fill-white" />
@@ -93,6 +94,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
 
               <a
                 href={`tel:${PHONE_NUMBER}`}
+                onClick={() => trackConversion()}
                 className="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-base shadow-lg shadow-amber-950/30 transition transform hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5 fill-slate-950" />
@@ -101,7 +103,10 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
 
               <button
                 type="button"
-                onClick={onOpenBooking}
+                onClick={() => {
+                  trackConversion();
+                  onOpenBooking();
+                }}
                 className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition"
               >
                 <Truck className="w-4 h-4 text-amber-400" />

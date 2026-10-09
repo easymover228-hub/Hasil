@@ -3,7 +3,7 @@ import { Phone, Truck } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { Language } from '../types';
 import { UI_TRANSLATIONS } from '../translations';
-import { PHONE_NUMBER, DISPLAY_PHONE, WHATSAPP_URL } from '../data/scrapData';
+import { PHONE_NUMBER, DISPLAY_PHONE, WHATSAPP_URL, trackConversion } from '../data/scrapData';
 
 interface FloatingActionBarProps {
   currentLang: Language;
@@ -20,6 +20,7 @@ export const FloatingActionBar: React.FC<FloatingActionBarProps> = ({ currentLan
         {/* Call button */}
         <a
           href={`tel:${PHONE_NUMBER}`}
+          onClick={() => trackConversion()}
           className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-extrabold text-xs sm:text-sm border border-slate-700 transition"
         >
           <Phone className="w-4 h-4 text-emerald-400 fill-emerald-400 shrink-0" />
@@ -31,6 +32,7 @@ export const FloatingActionBar: React.FC<FloatingActionBarProps> = ({ currentLan
           href={`${WHATSAPP_URL}?text=${encodeURIComponent('السلام عليكم، عندي سكراب في جدة وأرغب بالمعاينة والتسعير كاش')}`}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackConversion()}
           className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-xs sm:text-sm shadow-md transition"
         >
           <WhatsAppIcon className="w-4 h-4 fill-white shrink-0" />
@@ -40,7 +42,10 @@ export const FloatingActionBar: React.FC<FloatingActionBarProps> = ({ currentLan
         {/* Book Pickup Button */}
         <button
           type="button"
-          onClick={onOpenBooking}
+          onClick={() => {
+            trackConversion();
+            onOpenBooking();
+          }}
           className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-md transition"
         >
           <Truck className="w-4 h-4 shrink-0" />

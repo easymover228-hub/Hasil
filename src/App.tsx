@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Language } from './types';
 import { UI_TRANSLATIONS } from './translations';
+import { trackConversion } from './data/scrapData';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { MaterialsSection } from './components/MaterialsSection';
@@ -43,18 +44,38 @@ export default function App() {
     }
   }, [currentLang]);
 
+  // Global listener to track Google Ads conversion on any Call (tel:) or WhatsApp (wa.me) link click
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+      const anchor = target.closest('a');
+      if (anchor) {
+        const href = anchor.getAttribute('href') || '';
+        if (href.startsWith('tel:') || href.includes('wa.me')) {
+          trackConversion();
+        }
+      }
+    };
+    document.addEventListener('click', handleGlobalClick, true);
+    return () => document.removeEventListener('click', handleGlobalClick, true);
+  }, []);
+
   const handleOpenBooking = () => {
+    trackConversion();
     setSelectedMaterialForBooking(undefined);
     setSelectedDistrictForBooking(undefined);
     setIsBookingOpen(true);
   };
 
   const handleSelectMaterial = (materialName: string) => {
+    trackConversion();
     setSelectedMaterialForBooking(materialName);
     setIsBookingOpen(true);
   };
 
   const handleSelectDistrict = (districtName: string) => {
+    trackConversion();
     setSelectedDistrictForBooking(districtName);
     setIsBookingOpen(true);
   };
